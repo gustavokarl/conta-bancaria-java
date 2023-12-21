@@ -82,11 +82,12 @@ public class ContaController implements ContaRepository {
 		} else {
 		System.out.println("\nA conta número: " + numero + " não foi encontrada ou a conta destino não é uma conta corrente!");
 	}
+}
 
 	@Override
 	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-		var contaOrigem = buscarNaCollection(contaOrigem);
-		var contaDestino = buscarNaCollection(contaDestino);
+		var contaOrigem = buscarNaCollection(numeroOrigem);
+		var contaDestino = buscarNaCollection(numeroDestino);
 		
 		if (contaOrigem != null && contaDestino != null) {
 			if (contaOrigem.sacar(valor) == true) {
